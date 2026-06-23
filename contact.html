@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Quiz System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Landing Page -->
+    <div id="landing-page" class="page-container">
+        <div class="container">
+            <div class="hero-section">
+                <h1 class="hero-title">Modern Quiz System</h1>
+                <p class="hero-subtitle">Experience the future of online learning with real-time interactions and seamless performance</p>
+                
+                <div class="landing-card">
+                    <div class="form-group">
+                        <label for="username" class="form-label">Enter Your Name</label>
+                        <input type="text" id="username" class="form-control" placeholder="Your name here..." required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="category" class="form-label">Select Quiz Category</label>
+                        <select id="category" class="form-control">
+                            <option value="">Choose a category...</option>
+                            <option value="General Knowledge">General Knowledge</option>
+                            <option value="Computer Science">Computer Science</option>
+                            <option value="Verbal Reasoning">Verbal Reasoning</option>
+                        </select>
+                    </div>
+                    
+                    <button id="start-quiz-btn" class="btn btn--primary btn--lg btn--full-width" disabled>
+                        Start Quiz
+                    </button>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Real-time Updates</h3>
+                        <p>No page reloads, instant feedback</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Interactive Design</h3>
+                        <p>Modern UI with smooth animations</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Progress Tracking</h3>
+                        <p>Live progress and performance metrics</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz Interface -->
+    <div id="quiz-page" class="page-container hidden">
+        <div class="container">
+            <div class="quiz-header">
+                <div class="quiz-info">
+                    <h2 id="quiz-category" class="quiz-title"></h2>
+                    <p id="user-greeting" class="user-greeting"></p>
+                </div>
+                <div class="quiz-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Score</span>
+                        <span id="current-score" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Time</span>
+                        <span id="timer" class="stat-value">10:00</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+                <span id="question-counter" class="progress-text">Question 1 of 5</span>
+            </div>
+            
+            <div class="quiz-content">
+                <div class="question-card">
+                    <h3 id="question-text" class="question-text"></h3>
+                    <div id="options-container" class="options-container">
+                        <!-- Options will be dynamically generated -->
+                    </div>
+                </div>
+                
+                <div class="quiz-actions">
+                    <button id="next-btn" class="btn btn--primary btn--lg" disabled>
+                        Next Question
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Page -->
+    <div id="results-page" class="page-container hidden">
+        <div class="container">
+            <div class="results-content">
+                <div class="results-header">
+                    <h1>Quiz Complete!</h1>
+                    <p id="results-greeting" class="results-greeting"></p>
+                </div>
+                
+                <div class="score-display">
+                    <div class="score-circle">
+                        <div class="score-inner">
+                            <span id="final-score" class="final-score">0</span>
+                            <span class="score-total">/ 5</span>
+                        </div>
+                    </div>
+                    <div class="percentage-display">
+                        <span id="percentage" class="percentage">0%</span>
+                        <span id="performance-badge" class="performance-badge"></span>
+                    </div>
+                </div>
+                
+                <div class="results-breakdown">
+                    <h3>Performance Breakdown</h3>
+                    <div class="breakdown-stats">
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">Correct Answers</span>
+                            <span id="correct-count" class="breakdown-value">0</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">Wrong Answers</span>
+                            <span id="wrong-count" class="breakdown-value">0</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">Time Taken</span>
+                            <span id="time-taken" class="breakdown-value">0:00</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">Category</span>
+                            <span id="results-category" class="breakdown-value">-</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="results-actions">
+                    <button id="retry-btn" class="btn btn--primary btn--lg">
+                        Retry Quiz
+                    </button>
+                    <button id="new-category-btn" class="btn btn--secondary btn--lg">
+                        New Category
+                    </button>
+                    <button id="share-btn" class="btn btn--outline btn--lg">
+                        Share Results
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ElevenLabs Conversational AI Widget -->
+    <elevenlabs-convai agent-id="agent_5001kpf9xppqegk9px86pz2j04gm"></elevenlabs-convai>
+    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+
+    <script src="app.js"></script>
+</body>
+</html>
